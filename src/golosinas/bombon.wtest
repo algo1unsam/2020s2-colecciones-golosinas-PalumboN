@@ -1,6 +1,7 @@
 import golosinas.*
 
 describe "test de bombon" {
+	const bombon = new Bombon()
 	
 	test "precio" {
 		assert.equals(5, bombon.precio())

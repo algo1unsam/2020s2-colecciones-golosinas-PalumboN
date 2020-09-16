@@ -2,6 +2,7 @@ import mariano.*
 import golosinas.golosinas.*
 
 describe "Tests de Mariano" {
+	const bombon = new Bombon()
 	
 	fixture {
 		mariano.comprar(bombon)
