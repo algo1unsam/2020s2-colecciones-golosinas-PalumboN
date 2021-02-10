@@ -1,4 +1,4 @@
-object bombon {
+class Bombon {
 	var peso = 15
 	
 	method precio() { return 5 }
@@ -7,6 +7,8 @@ object bombon {
 	method gusto() { return "frutilla" }
 	method libreGluten() { return true }
 }
+
+
 
 object alfajor {
 	var peso = 300

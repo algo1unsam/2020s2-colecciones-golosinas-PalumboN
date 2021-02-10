@@ -1,0 +1,63 @@
+import mariano.*
+import golosinas.golosinas.*
+
+describe "Tests de Mariano" {
+	const bombon = new Bombon()
+	
+	fixture {
+		mariano.comprar(bombon)
+		mariano.comprar(alfajor)		
+	}
+	
+	test "cantidad de golosinas" {
+		assert.equals(2, mariano.cantidadDeGolosinas())
+	}
+	
+	test "desechar" {
+		mariano.desechar(bombon)
+		assert.equals(1, mariano.cantidadDeGolosinas())
+	}
+	
+	test "tiene la golosina" {
+		assert.that(mariano.tieneLaGolosina(bombon))
+	}
+	
+	test "no tiene la golosina" {
+		assert.notThat(mariano.tieneLaGolosina(caramelo))
+	}
+	
+	test "probar golosinas" {
+		mariano.probarGolosinas()
+		assert.equals(11, bombon.peso())
+		assert.equals(240, alfajor.peso())
+	}
+	
+	test "hay golosinas sin TACC" {
+		assert.that(mariano.hayGolosinaSinTACC())
+	}
+	
+	test "precios cuidados" {
+		assert.notThat(mariano.preciosCuidados())
+	}
+	
+	test "golosina de sabor" {
+		assert.equals(bombon, mariano.golosinaDeSabor("frutilla")) 
+	}
+	
+	test "golosinas de sabor" {
+		mariano.comprar(caramelo)
+		assert.equals([bombon, caramelo], mariano.golosinasDeSabor("frutilla")) 
+	}
+	
+	test "sabores" {
+		assert.equals(#{"chocolate", "frutilla"}, mariano.sabores()) 
+	}
+	
+	test "golosina mas cara" {
+		assert.equals(alfajor, mariano.golosinaMasCara()) 
+	}
+	
+	test "peso golosinas" {
+		assert.equals(315, mariano.pesoGolosinas()) 
+	}
+}
